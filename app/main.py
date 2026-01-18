@@ -4,10 +4,13 @@ from app.routers import cars, admin, favorites
 from app.db.base import Base
 from app.db.session import engine
 
+from fastapi.staticfiles import StaticFiles
 
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="MR JAMES AFFORDABLE USED CARS API")
+
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+
 
 app.include_router(cars.router)
 app.include_router(admin.router)

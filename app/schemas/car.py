@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
+from app.schemas.car_image import CarImageOut
+
 
 class CarBase(BaseModel):
     make: str
@@ -22,6 +24,7 @@ class CarOut(CarBase):
     id: int
     views: int
     created_at: datetime
+    images: list[CarImageOut] = []
 
     class Config:
-        from_attributes = True  # 👈 REQUIRED for SQLAlchemy (Pydantic v2)
+        from_attributes = True
