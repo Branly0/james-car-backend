@@ -2,6 +2,8 @@ from pydantic import BaseModel
 from datetime import datetime
 from app.schemas.car_image import CarImageOut
 
+from typing import List
+
 
 class CarBase(BaseModel):
     make: str
@@ -20,11 +22,12 @@ class CarCreate(CarBase):
     pass
 
 
-class CarOut(CarBase):
+class CarOut(BaseModel):
     id: int
-    views: int
-    created_at: datetime
-    images: list[CarImageOut] = []
+    # title: str
+    price: float
+    financing_available: bool
+    images: List[CarImageOut] = []
 
     class Config:
         from_attributes = True

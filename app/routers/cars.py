@@ -8,7 +8,7 @@ from app.schemas.car import CarOut
 router = APIRouter(prefix="/cars", tags=["Cars"])
 
 
-@router.get("/", response_model=list[CarOut])
+@router.get("", response_model=list[CarOut])
 def get_all_cars(
     skip: int = 0,
     limit: int = 20,

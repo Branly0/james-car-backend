@@ -52,7 +52,7 @@ def upload_car_images(
 
         image = CarImage(
             car_id=car_id,
-            image_path=f"/uploads/cars/{filename}"
+            image_url=f"/uploads/cars/{filename}"
         )
         db.add(image)
         images.append(image)
