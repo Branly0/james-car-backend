@@ -1,4 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+
 from app.db.base import Base
 
 class CarImage(Base):
@@ -7,3 +9,5 @@ class CarImage(Base):
     id = Column(Integer, primary_key=True)
     car_id = Column(Integer, ForeignKey("cars.id", ondelete="CASCADE"))
     image_url = Column(String, nullable=False)
+
+    car = relationship("Car", back_populates="images")
