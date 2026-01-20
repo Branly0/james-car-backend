@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.db.session import get_db
 from app.models.car import Car
-from app.schemas.car import CarOut
+from app.schemas.car import CarOut, CarBase
 
 router = APIRouter(prefix="/cars", tags=["Cars"])
 
@@ -23,7 +23,7 @@ def get_all_cars(
     )
 
 
-@router.get("/{car_id}", response_model=CarOut)
+@router.get("/{car_id}", response_model=CarBase)
 def get_car(car_id: int, db: Session = Depends(get_db)):
     car = db.query(Car).filter(Car.id == car_id).first()
 
