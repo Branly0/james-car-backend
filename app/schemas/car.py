@@ -33,6 +33,6 @@ class CarOut(BaseModel):
     price: float
     financing_available: bool
     images: List[CarImageOut] = []
-
+    mileage: int
     class Config:
         from_attributes = True
