@@ -9,8 +9,14 @@ from app.models.car import Car
 from app.schemas.car import CarCreate, CarOut
 from app.models.car_image import CarImage
 
-UPLOAD_DIR = "uploads/cars"
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+UPLOAD_DIR = Path("uploads/cars")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+file_path = UPLOAD_DIR / filename
+
+with open(file_path, "wb") as buffer:
+    buffer.write(await file.read())
+
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
