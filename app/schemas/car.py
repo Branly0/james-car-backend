@@ -16,6 +16,10 @@ class CarBase(BaseModel):
     location: str | None = None
     description: str | None = None
     financing_available: bool = False
+    images: List[CarImageOut] = []
+
+    class Config:
+        from_attributes = True
 
 
 class CarCreate(CarBase):
