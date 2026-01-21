@@ -8,6 +8,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 
+Base.metadata.create_all(engine)
+
+
 app = FastAPI(title="MR JAMES AFFORDABLE USED CARS API")
 
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")

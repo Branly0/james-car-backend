@@ -13,7 +13,16 @@ from app.core import cloudinary_config  # This just runs the config
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
+# --------------------
+# Upload directory
+# --------------------
+UPLOAD_DIR = Path("uploads/cars")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
+
+# --------------------
+# Create car
+# --------------------
 @router.post("/cars", response_model=CarOut)
 def create_car(car_in: CarCreate, db: Session = Depends(get_db)):
     """
@@ -26,8 +35,11 @@ def create_car(car_in: CarCreate, db: Session = Depends(get_db)):
     return car
 
 
+# --------------------
+# Upload car images
+# --------------------
 @router.post("/cars/{car_id}/images")
-def upload_car_images(
+async def upload_car_images(
     car_id: int,
     files: List[UploadFile] = File(...),
     db: Session = Depends(get_db)
@@ -66,7 +78,9 @@ def upload_car_images(
         "images": [img.image_url for img in uploaded_images]
     }
 
-
+# --------------------
+# Delete car
+# --------------------
 @router.delete("/cars/{car_id}")
 def delete_car(car_id: int, db: Session = Depends(get_db)):
     """
