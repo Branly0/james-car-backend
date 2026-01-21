@@ -28,7 +28,8 @@ class CarCreate(CarBase):
 
 class CarOut(BaseModel):
     id: int
-    # title: str
+    mode: str
+    make: str
     price: float
     financing_available: bool
     images: List[CarImageOut] = []
