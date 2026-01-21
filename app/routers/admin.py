@@ -13,11 +13,11 @@ from app.core import cloudinary_config  # This just runs the config
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
-# --------------------
-# Upload directory
-# --------------------
-UPLOAD_DIR = Path("uploads/cars")
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+# # --------------------
+# # Upload directory
+# # --------------------
+# UPLOAD_DIR = Path("uploads/cars")
+# UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # --------------------
