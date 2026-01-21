@@ -30,6 +30,7 @@ class CarOut(BaseModel):
     id: int
     model: str
     make: str
+    year: int
     price: float
     financing_available: bool
     images: List[CarImageOut] = []
