@@ -15,6 +15,7 @@ app = FastAPI(title="MR JAMES AFFORDABLE USED CARS API")
 
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
+Base.metadata.create_all(engine)
 
 app.include_router(cars.router)
 app.include_router(admin.router)
