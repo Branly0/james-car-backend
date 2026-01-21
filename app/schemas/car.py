@@ -28,7 +28,7 @@ class CarCreate(CarBase):
 
 class CarOut(BaseModel):
     id: int
-    mode: str
+    model: str
     make: str
     price: float
     financing_available: bool
