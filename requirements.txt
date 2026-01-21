@@ -12,5 +12,5 @@ python-dotenv==1.0.1
 python-multipart==0.0.9
 
 alembic==1.13.1
+
 cloudinary==2.20.0
-anyio==4.0.0
