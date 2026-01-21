@@ -13,4 +13,5 @@ python-multipart==0.0.9
 
 alembic==1.13.1
 
-cloudinary==2.20.0
+cloudinary==1.44.1
+
