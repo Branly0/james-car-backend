@@ -9,5 +9,6 @@ class CarImage(Base):
     id = Column(Integer, primary_key=True)
     car_id = Column(Integer, ForeignKey("cars.id", ondelete="CASCADE"))
     image_url = Column(String, nullable=False)
+    public_id = Column(String, nullable=False)  # Store Cloudinary public_id
 
     car = relationship("Car", back_populates="images")
