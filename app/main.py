@@ -23,6 +23,7 @@ app.include_router(favorites.router)
 
 
 
+
 @app.get("/")
 def read_root():
     return {"welcome to:": "MR JAMES AFFORDABLE USED CARS API"}
